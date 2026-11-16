@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Happy 22nd Birthday, Bubb!</title>
+<meta name="description" content="Ada misi rahasia dan kejutan kecil buat kamu 🤍">
+<meta name="theme-color" content="#f9e1dc">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Happy 22nd Birthday, Bubb! 🎂">
+<meta property="og:description" content="Ada misi rahasia dan kejutan kecil buat kamu. Buka tanggal 17 ya 🤍">
+<!-- GANTI DI SINI: ganti DOMAIN-KAMU dengan alamat websitemu (harus alamat lengkap https://). Gambar: assets/preview.jpg (1200x630) -->
+<meta property="og:image" content="https://DOMAIN-KAMU/assets/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fbf3e6;--cream2:#f3e6d0;--pink:#d9a5a8;--pink2:#f1d3d3;--sage:#a9b89b;--sage2:#7f9272;--gold:#c8a45e;--ink:#5a4a47;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Times New Roman',Times,'Liberation Serif',serif}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:#f7e9d3;line-height:1.6;overflow-x:hidden;min-height:100vh;
+background-image:radial-gradient(circle,rgba(200,164,94,.28) 1px,transparent 1.5px),radial-gradient(circle at 12% 8%,rgba(248,206,210,.85),transparent 42%),radial-gradient(circle at 92% 55%,rgba(243,226,190,.9),transparent 45%),linear-gradient(165deg,#fdf3e3 0%,#f9e1dc 45%,#f4e4c8 100%);
+background-size:22px 22px,auto,auto,auto}
+body.locked{overflow:hidden}
+h1,h2{font-family:var(--serif);font-weight:600;line-height:1.15}
+h2{font-size:clamp(1.9rem,7vw,2.6rem);text-align:center;margin-bottom:.4rem}
+.sub{text-align:center;opacity:.75;margin-bottom:1.6rem;font-size:.95rem}
+section{padding:4.5rem 1.2rem;max-width:760px;margin:auto}
+.btn{font:700 1rem var(--sans);border:0;border-radius:99px;padding:.9rem 1.8rem;color:#fff;cursor:pointer;
+background:linear-gradient(135deg,var(--pink),#c78e92);box-shadow:0 6px 18px rgba(199,142,146,.45);transition:transform .2s}
+.btn:active{transform:scale(.95)}
+.btn.gold{background:linear-gradient(135deg,#d8b873,var(--gold));box-shadow:0 6px 18px rgba(200,164,94,.5)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s}
+.reveal.in{opacity:1;transform:none}
+
+/* QUEST */
+#quest{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:1.2rem;transition:opacity .9s}
+#quest.gone{opacity:0;pointer-events:none}
+.step{display:none;width:100%;max-width:420px;text-align:center;animation:fade .7s;padding:2rem 1.4rem 2.2rem;background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(200,164,94,.55);border-radius:24px;box-shadow:0 12px 40px rgba(201,140,150,.28),inset 0 1px 0 rgba(255,255,255,.75)}
+.step.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}}
+.step h1{font-size:clamp(2.2rem,9vw,3rem);margin:.6rem 0 .8rem}
+.step p{margin-bottom:1.4rem}
+.badge{display:inline-block;border:1.5px solid var(--gold);color:var(--gold);border-radius:99px;padding:.2rem 1rem;font-weight:700;font-size:.85rem}
+.opt{display:block;width:100%;margin:.55rem 0;padding:.85rem 1rem;border:1.5px solid var(--sage);background:#fff9;border-radius:16px;font:600 1rem var(--sans);color:var(--ink);cursor:pointer;transition:.2s}
+.opt.ok{background:var(--sage);color:#fff}
+.opt.no{background:var(--pink2);animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+#feedback{min-height:1.6rem;margin-top:.6rem;font-weight:600;color:var(--sage2)}
+#stage{position:fixed;inset:0;z-index:55;display:none}
+#stage.on{display:block}
+#stage .hud{position:absolute;top:calc(1rem + env(safe-area-inset-top,0px));left:0;right:0;text-align:center;padding:0 1.2rem}
+#stage .hud b{font-family:var(--serif);font-size:1.6rem}
+.token{position:absolute;font-size:2.6rem;background:none;border:0;cursor:pointer;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 3px 6px #c8a45e88)}
+.token.got{animation:none;transition:.6s;transform:scale(0) rotate(360deg);opacity:0}
+@keyframes float{50%{transform:translateY(-12px) rotate(8deg)}}
+#unlock{display:none}
+
+/* MUSIC */
+#music{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--gold);background:var(--cream);font-size:1.2rem;cursor:pointer;box-shadow:0 4px 14px #0002;display:none}
+#music.spin{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* HERO + ENVELOPE */
+#hero{text-align:center;padding-top:3.5rem}
+#hero h1{font-size:clamp(2.4rem,10vw,3.6rem);color:var(--ink)}
+#hero h1 em{display:block;font-style:italic;color:var(--gold);font-size:1.15em}
+.env{position:relative;width:min(300px,82vw);height:200px;margin:2.5rem auto 0;cursor:pointer;perspective:800px}
+.env .back,.env .front{position:absolute;inset:0;border-radius:6px}
+.env .back{background:var(--pink)}
+.env .front{background:linear-gradient(135deg,transparent 50%,#e8bcbf 50%) left/50% 100% no-repeat,linear-gradient(225deg,transparent 50%,#e8bcbf 50%) right/50% 100% no-repeat;z-index:3;pointer-events:none}
+.env .flap{position:absolute;top:0;left:0;right:0;height:105px;background:#cf9599;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s,z-index 0s .4s;z-index:4}
+.env .seal{position:absolute;left:50%;top:78px;transform:translateX(-50%);z-index:5;font-size:1.6rem;transition:opacity .4s}
+.env.open .flap{transform:rotateX(180deg);z-index:1}
+.env.open .seal{opacity:0}
+.env .hint{position:absolute;bottom:-2rem;left:0;right:0;font-size:.85rem;opacity:.7}
+.env.open .hint{display:none}
+.letter{max-height:0;overflow:hidden;opacity:0;margin:0 auto;max-width:520px;background:#fffdf7;border-radius:6px;box-shadow:0 10px 30px #5a4a4730;text-align:left;
+background-image:repeating-linear-gradient(transparent 0 31px,#e8dcc4 31px 32px);transition:max-height 1.6s ease,opacity 1.6s ease,margin 1s,padding 1s}
+.letter.show{max-height:1600px;opacity:1;margin-top:3rem;padding:1.6rem 1.5rem}
+.letter h2{text-align:left;font-size:1.7rem}
+.letter p{font-size:1rem;line-height:32px;opacity:0;transform:translateY(8px);transition:1s}
+.letter.show p{opacity:1;transform:none}
+.letter.show p:nth-of-type(1){transition-delay:1s}.letter.show p:nth-of-type(2){transition-delay:2s}
+.letter.show p:nth-of-type(3){transition-delay:3s}.letter.show p:nth-of-type(4){transition-delay:4s}
+
+/* POLAROID */
+.wall{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem .9rem}
+.pol{perspective:900px;aspect-ratio:4/5.1}
+.pol:nth-child(odd){transform:rotate(-3deg)}.pol:nth-child(even){transform:rotate(2.5deg) translateY(10px)}
+.pol:nth-child(3n){transform:rotate(-1.5deg)}
+.inner{position:relative;width:100%;height:100%;transition:transform .8s;transform-style:preserve-3d}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fffdf8;padding:.55rem .55rem 0;border-radius:3px;box-shadow:0 8px 20px #5a4a4733}
+.face .ph{width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--pink2),#dfe8d6);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.face img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{font-family:var(--serif);font-style:italic;text-align:center;font-size:1.05rem;padding-top:.5rem}
+.pol::before{content:"";position:absolute;top:-9px;left:50%;width:54px;height:18px;margin-left:-27px;background:#a9b89b88;transform:rotate(-4deg);z-index:2}
+.back-f{transform:rotateY(180deg);padding:.8rem;text-align:center;display:flex;flex-direction:column;justify-content:center;background:#fdf1ec}
+.back-f b{font-family:var(--serif);font-size:1.1rem;color:var(--gold)}
+.back-f span{font-size:.82rem;line-height:1.45;margin-top:.3rem}
+
+/* VIDEO */
+.frame{background:#fffdf8;padding:.7rem;border-radius:8px;box-shadow:0 12px 30px #5a4a4730;border:1.5px solid var(--gold);outline:6px solid var(--pink2);outline-offset:-1px}
+.ratio{position:relative;aspect-ratio:16/9;background:#000;border-radius:3px;overflow:hidden}
+.ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* CAKE */
+#cakeSec{text-align:center}
+.cake{position:relative;width:240px;margin:5.5rem auto 0;cursor:pointer}
+.nums{position:absolute;bottom:100%;left:0;right:0;display:flex;justify-content:center;gap:12px;margin-bottom:-6px}
+.cd{position:relative;font:600 5rem/1 var(--serif);background:linear-gradient(180deg,#e6c987,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;width:56px}
+.flame{position:absolute;left:50%;top:-26px;width:16px;height:28px;margin-left:-8px;background:radial-gradient(ellipse at 50% 70%,#fff6c9 0,#ffc94d 40%,#ff8f3a 80%);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;box-shadow:0 0 18px 6px #ffc94d99;animation:flick .25s infinite alternate;transform-origin:50% 100%}
+@keyframes flick{to{transform:scale(.9,1.08) rotate(3deg)}}
+.cd.out .flame{display:none}
+.cd.out::after{content:"";position:absolute;left:50%;top:-50px;width:8px;height:40px;margin-left:-4px;background:linear-gradient(#bbb8,transparent);filter:blur(3px);animation:smoke 2s forwards}
+@keyframes smoke{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-40px)}}
+.l1,.l2,.l3{margin:0 auto;border-radius:14px 14px 6px 6px}
+.l1{width:150px;height:46px;background:var(--pink2);border-top:12px solid #fff}
+.l2{width:200px;height:54px;background:var(--pink);border-top:12px solid #fff;margin-top:-4px}
+.l3{width:240px;height:60px;background:var(--sage);border-top:12px solid #f7f2e4;margin-top:-4px}
+.plate{width:290px;height:12px;background:var(--gold);border-radius:99px;margin:0 -25px}
+#wish{opacity:0;transition:1.5s;margin-top:2rem;font-family:var(--serif);font-size:1.35rem;line-height:1.5;max-width:480px;margin-inline:auto}
+#wish.show{opacity:1}
+#wish small{display:block;font:400 .9rem var(--sans);margin-top:.8rem;opacity:.7}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:120}
+#main{display:none}
+footer{text-align:center;padding:2rem 1rem 5rem;font-size:.85rem;opacity:.6}
+/* COUNTER */
+#counter{padding-top:1rem;padding-bottom:2rem}
+.ccard{background:#fffdf8;border:1.5px solid var(--gold);outline:6px solid var(--pink2);outline-offset:-1px;border-radius:10px;padding:1.6rem 1rem 1.4rem;text-align:center;box-shadow:0 12px 30px #5a4a4730}
+.ccard h2{font-size:clamp(1.6rem,6.5vw,2.2rem)}
+.ccard h2 small{display:block;font:italic 500 1.05rem var(--serif);color:var(--gold);margin-top:.3rem}
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:1.2rem}
+.cbox{background:linear-gradient(160deg,var(--pink2),#e6eddc);border-radius:12px;padding:.7rem .2rem}
+.cbox b{display:block;font:600 clamp(1.5rem,7vw,2.2rem)/1.1 var(--serif);color:var(--ink)}
+.cbox span{font-size:.75rem;opacity:.75}
+/* AKSI PENUTUP */
+.acts{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-top:2.2rem}
+#fx2{position:fixed;inset:0;pointer-events:none;z-index:130;overflow:hidden}
+.fp{position:absolute;top:-40px;animation:fall linear forwards;will-change:transform}
+@keyframes fall{to{transform:translate(var(--sw),110vh) rotate(var(--rot));opacity:.7}}
+#toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:140;width:min(88vw,360px);transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#fffdf8;border:1.5px solid var(--gold);outline:4px solid var(--pink2);outline-offset:-1px;border-radius:14px;padding:1rem 1.2rem;text-align:center;font:italic 500 1.2rem/1.4 var(--serif);box-shadow:0 10px 28px #5a4a4740;transition:opacity .6s,transform .6s}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#kmodal{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;padding:1.2rem;background:rgba(251,243,230,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .6s,visibility 0s .6s}
+#kmodal.show{opacity:1;visibility:visible;transition:opacity .6s}
+.kcard{position:relative;width:min(88vw,360px);background:#fffdf8;border:1.5px solid var(--gold);outline:6px solid var(--pink2);outline-offset:-1px;border-radius:14px;padding:.7rem .7rem 1.2rem;text-align:center;box-shadow:0 0 40px #c8a45e55,0 16px 40px #5a4a4740;transform:translateY(24px) scale(.94);transition:transform .7s cubic-bezier(.2,.9,.3,1.2)}
+#kmodal.show .kcard{transform:none}
+.kvid{display:block;width:100%;height:auto;max-height:58vh;object-fit:cover;border-radius:8px;background:linear-gradient(135deg,var(--pink2),#dfe8d6)}
+.kfall{display:none;font-size:5rem;padding:2rem 0;filter:drop-shadow(0 0 14px #f1d3d3) drop-shadow(0 0 26px #c8a45ecc)}
+.ktxt{margin-top:.9rem;font:italic 600 1.5rem/1.25 var(--serif);color:var(--ink);text-shadow:0 0 14px #c8a45e66}
+.kx{position:absolute;top:-14px;right:-10px;z-index:2;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--gold);background:var(--cream);color:var(--ink);font:700 1.1rem var(--sans);cursor:pointer;box-shadow:0 3px 10px #0002}
+/* ZODIAK */
+#zodiac{padding-top:1rem;padding-bottom:2rem}
+.zcard{background:linear-gradient(160deg,#4a3a4d,#2f2735);color:#fff6e6;border:1.5px solid var(--gold);outline:6px solid var(--pink2);outline-offset:-1px;border-radius:10px;padding:1.8rem 1rem 1.6rem;text-align:center;box-shadow:0 12px 30px #5a4a4730}
+.zsym{font-size:2.6rem;color:var(--gold);line-height:1}
+.zcard h2{color:#fff6e6;margin-top:.3rem}
+.zdate{font-size:.85rem;opacity:.7}
+#zsvg{width:min(300px,86%);margin:1rem auto .4rem;display:block}
+.zline{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.8;transition:stroke-dashoffset 3s ease .4s}
+.zcard.in .zline{stroke-dashoffset:0}
+.zst{fill:#fff1c9;animation:tw 2.6s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.35}to{opacity:1}}
+.zq{font:italic 500 1.25rem/1.4 var(--serif);margin:.6rem auto 1rem;max-width:340px}
+.zchips{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.zchips span{border:1px solid var(--gold);color:var(--gold);border-radius:99px;padding:.25rem .9rem;font-size:.82rem;font-weight:600}
+/* TOMBOL MULAI */
+#start{font-size:1.1rem;padding:1rem 2.4rem;letter-spacing:.3px;background:linear-gradient(135deg,#dc9ea6,#b9707a);box-shadow:0 8px 22px rgba(185,112,122,.5),inset 0 1px 0 rgba(255,255,255,.35);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.045)}}
+/* HATI MELAYANG & PERCIKAN KLIK */
+#hearts,#burst{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#hearts{z-index:-1}
+#burst{z-index:160}
+.hh{position:absolute;bottom:-40px;left:var(--x);font-size:var(--s);color:var(--c);opacity:0;animation:hup var(--d) linear var(--dl) infinite;will-change:transform,opacity}
+@keyframes hup{0%{transform:translate3d(0,0,0) rotate(-10deg);opacity:0}10%{opacity:var(--o)}50%{transform:translate3d(var(--sw),-60vh,0) rotate(10deg)}90%{opacity:var(--o)}100%{transform:translate3d(0,-115vh,0) rotate(-10deg);opacity:0}}
+.bh{position:absolute;pointer-events:none;line-height:1;animation:bpop 1.3s cubic-bezier(.2,.7,.3,1) forwards;will-change:transform,opacity}
+@keyframes bpop{0%{transform:translate(-50%,-50%) scale(.3);opacity:1}60%{opacity:1}100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1);opacity:0}}
+/* QUEST BARU: ESAI, GAME KUNCI, WISHLIST */
+.wlin{display:block;width:100%;border:1.5px solid var(--sage);border-radius:16px;padding:.8rem 1rem;background:rgba(255,253,248,.85);font:1rem/1.5 var(--sans);color:var(--ink);resize:none;outline:none;transition:border-color .2s}
+.wlin:focus{border-color:var(--gold)}
+.btn:disabled{opacity:.6;cursor:default}
+@keyframes twk{from{opacity:.55}to{opacity:1}}
+#gnote{position:absolute;left:50%;top:calc(3.6rem + env(safe-area-inset-top,0px));transform:translate(-50%,-6px);max-width:90vw;text-align:center;background:#fffdf8;border:1px solid var(--gold);border-radius:99px;padding:.35rem 1rem;font-size:.92rem;font-weight:600;box-shadow:0 4px 14px #5a4a4730;opacity:0;pointer-events:none;transition:opacity .35s,transform .35s}
+#gnote.show{opacity:1;transform:translate(-50%,0)}
+.wl{max-width:420px;margin:2rem auto 0;padding:1.2rem 1.2rem 1.3rem;background:#fffdf8;border:1.5px dashed var(--gold);border-radius:12px;box-shadow:0 8px 22px #5a4a4726;transform:rotate(-1deg);animation:fade .9s}
+.wl[hidden]{display:none}
+.wl h3{font:600 1.4rem var(--serif);color:var(--gold);margin-bottom:.4rem}
+.wl p{font:italic 500 1.2rem/1.45 var(--serif);white-space:pre-wrap;overflow-wrap:anywhere}
+/* PENUTUP SPESIAL */
+#closing{padding-top:1.5rem;padding-bottom:2rem}
+.hcard{position:relative;background:#fffdf8;border:1.5px solid var(--gold);outline:6px solid var(--pink2);outline-offset:-1px;border-radius:10px;padding:1.6rem 1.1rem 1.5rem;text-align:center;box-shadow:0 12px 30px #5a4a4730}
+.hcard h2{font-size:clamp(1.5rem,6vw,2rem);margin-bottom:.3rem}
+.hcard .sub{margin-bottom:1rem}
+.hcard .btn{margin-top:.9rem}
+#hopeMsg{min-height:1.5rem;margin-top:.7rem;font:italic 600 1.15rem/1.4 var(--serif);color:var(--sage2)}
+.stamp{position:absolute;left:50%;top:40%;z-index:5;pointer-events:none;opacity:0;padding:.6rem 1.3rem;border:3px double var(--pink);border-radius:14px;color:#b9707a;font:700 1.8rem var(--serif);letter-spacing:1px;white-space:nowrap;background:rgba(255,253,248,.94);box-shadow:0 6px 20px rgba(185,112,122,.35);transform:translate(-50%,-50%) rotate(-8deg)}
+.stamp.go{animation:stampPop 2.4s ease forwards}
+@keyframes stampPop{0%{opacity:0;transform:translate(-50%,-50%) rotate(-24deg) scale(2.4)}18%{opacity:1;transform:translate(-50%,-50%) rotate(-8deg) scale(.88)}30%{transform:translate(-50%,-50%) rotate(-8deg) scale(1.08)}40%{opacity:1;transform:translate(-50%,-50%) rotate(-8deg) scale(1)}80%{opacity:1;transform:translate(-50%,-50%) rotate(-8deg) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) rotate(-8deg) scale(1)}}
+.mem{position:relative;margin:1.6rem auto 0;max-width:360px;padding:1.3rem 1.2rem 1rem;background:#fdf1ec;border-radius:4px;box-shadow:0 8px 22px #5a4a4733;transform:rotate(1.5deg);text-align:left;animation:fade .9s}
+.mem[hidden]{display:none}
+.mem::before{content:"";position:absolute;top:-9px;left:50%;width:54px;height:18px;margin-left:-27px;background:#a9b89b88;transform:rotate(-4deg)}
+.mem small{color:var(--gold);font-weight:700;letter-spacing:.5px}
+.mem p{font:italic 500 1.25rem/1.45 var(--serif);margin:.4rem 0 .6rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.mem span{display:block;text-align:right;font-size:.8rem;opacity:.65}
+.fbtn{text-align:center;margin-top:1.6rem}
+/* PUSARAN BUNGA SPIRAL 3D */
+#vx{position:fixed;inset:0;z-index:131;pointer-events:none;overflow:hidden;perspective:800px;perspective-origin:50% 72%}
+.fl{position:absolute;left:50%;top:94%;line-height:1;opacity:0;pointer-events:none;filter:hue-rotate(var(--h)) saturate(var(--sat)) drop-shadow(0 4px 6px rgba(185,112,122,.45));animation:vortex var(--d) linear var(--dl) forwards}
+.fl.far{animation:vortex var(--d) linear var(--dl) forwards,vblur var(--d) linear var(--dl) forwards}
+@keyframes vortex{
+0%{opacity:0}10%{opacity:1}80%{opacity:1}100%{opacity:0}
+0%{transform:translate(-50%,-50%) translate3d(0,calc(var(--y) * 0),0) rotateY(calc(var(--a0) + var(--tn) * 0)) translate3d(0,0,calc(var(--z) * 0.25)) rotateY(calc((var(--a0) + var(--tn) * 0) * -1)) rotate(calc(var(--sp) * 0)) scale(calc(.2 + (var(--sm) - .2) * 0))}
+35%{transform:translate(-50%,-50%) translate3d(0,calc(var(--y) * 0.35),0) rotateY(calc(var(--a0) + var(--tn) * 0.35)) translate3d(0,0,calc(var(--z) * 0.7)) rotateY(calc((var(--a0) + var(--tn) * 0.35) * -1)) rotate(calc(var(--sp) * 0.35)) scale(calc(.2 + (var(--sm) - .2) * 0.2))}
+70%{transform:translate(-50%,-50%) translate3d(0,calc(var(--y) * 0.7),0) rotateY(calc(var(--a0) + var(--tn) * 0.7)) translate3d(0,0,calc(var(--z) * 1)) rotateY(calc((var(--a0) + var(--tn) * 0.7) * -1)) rotate(calc(var(--sp) * 0.7)) scale(calc(.2 + (var(--sm) - .2) * 0.55))}
+100%{transform:translate(-50%,-50%) translate3d(0,calc(var(--y) * 1),0) rotateY(calc(var(--a0) + var(--tn) * 1)) translate3d(0,0,calc(var(--z) * 1)) rotateY(calc((var(--a0) + var(--tn) * 1) * -1)) rotate(calc(var(--sp) * 1)) scale(calc(.2 + (var(--sm) - .2) * 1))}
+}
+@keyframes vblur{0%{filter:blur(3px) hue-rotate(var(--h)) saturate(var(--sat)) drop-shadow(0 4px 6px rgba(185,112,122,.45))}50%{filter:blur(0px) hue-rotate(var(--h)) saturate(var(--sat)) drop-shadow(0 4px 6px rgba(185,112,122,.45))}100%{filter:blur(0px) hue-rotate(var(--h)) saturate(var(--sat)) drop-shadow(0 4px 6px rgba(185,112,122,.45))}}
+/* BUKET BUNGA + KUPU-KUPU & LANGIT MALAM ZODIAK */
+.zcard{cursor:pointer}
+.zhint{margin-top:1rem;font:italic 500 1rem var(--serif);color:var(--gold);opacity:.8;animation:tw 2.2s ease-in-out infinite alternate}
+#bq,#sky{position:fixed;inset:0;z-index:136;overflow:hidden;opacity:0;visibility:hidden;touch-action:none;overscroll-behavior:contain;transition:opacity .7s,visibility 0s .7s}
+#bq.show,#sky.show{opacity:1;visibility:visible;transition:opacity .7s}
+#bq{background:radial-gradient(ellipse at 50% 58%,rgba(143,82,104,.92) 0%,rgba(74,48,72,.95) 55%,rgba(36,27,45,.98) 100%);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.bqx,.skx{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:6;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(251,243,230,.92);color:var(--ink);font:700 1.1rem var(--sans);cursor:pointer;box-shadow:0 3px 12px #0004}
+.bqglow{position:absolute;left:50%;top:46%;width:min(120vw,560px);aspect-ratio:1;transform:translate(-50%,-50%) scale(.6);border-radius:50%;background:radial-gradient(circle,rgba(255,206,214,.5),rgba(255,206,214,0) 65%);opacity:0;transition:opacity 1.6s .3s,transform 2.4s .3s;pointer-events:none}
+#bq.show .bqglow{opacity:1;transform:translate(-50%,-50%) scale(1)}
+#bqDust{position:absolute;inset:0;pointer-events:none}
+#bqDust i{position:absolute;bottom:-10px;left:var(--x);width:var(--s);height:var(--s);border-radius:50%;background:radial-gradient(circle,#fff6cf,rgba(255,226,150,0) 70%);opacity:0;animation:dustup var(--d) linear var(--dl) infinite}
+@keyframes dustup{0%{transform:translate(0,0);opacity:0}15%{opacity:.9}85%{opacity:.6}100%{transform:translate(var(--sw),-105vh);opacity:0}}
+.bqwrap{position:absolute;left:50%;top:calc(50% - 4vh);transform:translate(-50%,-50%);width:min(92vw,calc(70vh * .6923),400px)}
+#bqsvg{display:block;width:100%;height:auto;overflow:visible}
+.bqtxt{position:absolute;left:0;right:0;bottom:calc(4.5vh + env(safe-area-inset-bottom,0px));text-align:center;padding:0 1.2rem;font:italic 600 clamp(1.5rem,6.4vw,2rem)/1.25 var(--serif);color:#fff2e2;text-shadow:0 0 18px rgba(255,200,150,.55),0 2px 8px rgba(0,0,0,.35);opacity:0;transform:translateY(14px);transition:opacity 1.2s 3s,transform 1.2s 3s;pointer-events:none}
+#bq.show .bqtxt{opacity:1;transform:none}
+#bq:not(.show) .bqtxt{transition:none}
+.bqtxt small{display:block;font:400 .85rem var(--sans);opacity:.75;margin-top:.35rem;letter-spacing:.3px}
+#bqSky{position:absolute;inset:0;pointer-events:none;z-index:3}
+.bf{position:absolute;left:0;top:0;opacity:0;will-change:transform;filter:drop-shadow(0 3px 5px rgba(0,0,0,.3))}
+.bf svg{display:block}
+.bw{transform-origin:0 0;animation:flap var(--fd,.2s) ease-in-out infinite alternate}
+@keyframes flap{from{transform:scaleX(1)}to{transform:scaleX(.18)}}
+.fpet{position:absolute;left:0;top:0;width:11px;height:14px;border-radius:80% 0 80% 0;will-change:transform,opacity;opacity:0}
+.bqwrap .stem{fill:none;stroke:#86996f;stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:sgrow 1.2s cubic-bezier(.3,.6,.3,1) var(--d) forwards}
+.bqwrap .stem.thin{stroke-width:1.2;stroke:#a3b394}
+@keyframes sgrow{to{stroke-dashoffset:0}}
+.bqwrap .pt{stroke:rgba(150,70,95,.3);stroke-width:.6;opacity:0;animation:pfade .6s ease-out var(--d) both,pbloom 1.6s cubic-bezier(.2,1.3,.4,1) var(--d) both}
+@keyframes pfade{from{opacity:0}to{opacity:1}}
+@keyframes pbloom{from{transform:rotate(calc(var(--r) * .35)) scale(.12)}to{transform:rotate(var(--r)) scale(1)}}
+.bqwrap .ct{animation:cpop .8s cubic-bezier(.3,1.6,.5,1) var(--d) both}
+@keyframes cpop{from{transform:scale(0)}to{transform:scale(1)}}
+.bqwrap .lf{animation:lpop .9s cubic-bezier(.25,1.5,.5,1) var(--d) both}
+@keyframes lpop{from{transform:scale(0) rotate(-12deg)}to{transform:scale(1) rotate(0)}}
+.bqwrap .fh{cursor:pointer;animation:breath 4.2s ease-in-out var(--bd) infinite alternate}
+@keyframes breath{from{transform:rotate(-2.5deg) scale(1)}to{transform:rotate(2.5deg) scale(1.035)}}
+.bqwrap .wrapin{animation:wrapin 1s cubic-bezier(.2,.9,.3,1) .1s both}
+@keyframes wrapin{from{opacity:0;transform:translateY(70px)}to{opacity:1;transform:none}}
+.bqwrap .bowin{transform-box:fill-box;transform-origin:50% 50%;animation:bowin .9s cubic-bezier(.3,1.7,.5,1) 1.3s both}
+@keyframes bowin{from{transform:scale(0) rotate(-30deg)}to{transform:scale(1) rotate(0)}}
+.bqwrap .sway{transform-origin:180px 505px;animation:sway 5.5s ease-in-out 3.2s infinite alternate}
+@keyframes sway{from{transform:rotate(-1.3deg)}to{transform:rotate(1.3deg)}}
+/* LANGIT MALAM */
+#sky{background:radial-gradient(ellipse 80% 45% at 22% 18%,rgba(217,165,168,.28),transparent 70%),radial-gradient(ellipse 70% 50% at 85% 75%,rgba(200,164,94,.18),transparent 70%),linear-gradient(180deg,#120f27 0%,#251a3d 52%,#4b2f50 100%)}
+.mw{position:absolute;left:-20%;right:-20%;top:32%;height:28%;transform:rotate(-24deg);background:linear-gradient(90deg,transparent,rgba(255,236,230,.1),transparent);filter:blur(18px);pointer-events:none}
+#skyStars{position:absolute;inset:0;pointer-events:none}
+#skyStars i{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;background:#fff;opacity:var(--o);animation:stw var(--d) ease-in-out var(--dl) infinite alternate}
+@keyframes stw{to{opacity:.12;transform:scale(.6)}}
+.skyT{position:absolute;top:calc(2.2rem + env(safe-area-inset-top,0px));left:0;right:0;text-align:center;color:#fff6e6;font-family:var(--serif);pointer-events:none;opacity:0;transform:translateY(-8px);transition:opacity 1.2s .5s,transform 1.2s .5s}
+#sky.show .skyT{opacity:1;transform:none}
+.skyT span{display:block;font-size:2rem;color:var(--gold);line-height:1}
+.skyT b{display:block;font-size:2rem;font-weight:600}
+.skyT small{display:block;font:400 .85rem var(--sans);opacity:.7;margin-top:.2rem}
+#skysvg{position:absolute;left:50%;top:54%;width:min(88vw,380px);height:auto;transform:translate(-50%,-50%);overflow:visible;pointer-events:none;filter:drop-shadow(0 0 6px rgba(255,214,140,.55))}
+.sl{fill:none;stroke:rgba(255,226,160,.85);stroke-width:1.3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 3.2s ease .5s}
+#skysvg.draw .sl{stroke-dashoffset:0}
+.sst{fill:#fff1c9;opacity:0;animation:sstin .8s ease calc(var(--i) * .28s + .4s) forwards,tw 2.6s ease-in-out calc(var(--i) * .28s + 1.4s) infinite alternate}
+@keyframes sstin{to{opacity:1}}
+.halo{fill:rgba(255,140,90,.3);transform-box:fill-box;transform-origin:center;animation:halo 2.4s ease-in-out infinite}
+@keyframes halo{50%{transform:scale(1.4);opacity:.15}}
+.alab{fill:#ffd9b8;font:italic 500 11px var(--serif);opacity:.85}
+#skyFx{position:absolute;inset:0;pointer-events:none}
+.ss{position:absolute;left:0;top:0;width:150px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,231,176,.85) 75%,#fff);transform-origin:100% 50%;opacity:0}
+.ss::after{content:"";position:absolute;right:-3px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:#fff;box-shadow:0 0 10px 3px rgba(255,236,190,.95),0 0 22px 8px rgba(255,200,140,.5)}
+.smsg{position:absolute;left:0;top:0;width:max-content;max-width:78vw;text-align:center;font:italic 600 1.35rem/1.3 var(--serif);color:#fff3dc;text-shadow:0 0 14px rgba(255,214,150,.9),0 0 30px rgba(255,170,120,.5);opacity:0}
+/* KUNCI TANGGAL 17 */
+#lock{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:1.2rem;background-color:#f7e9d3;background-image:radial-gradient(circle,rgba(200,164,94,.28) 1px,transparent 1.5px),radial-gradient(circle at 12% 8%,rgba(248,206,210,.85),transparent 42%),radial-gradient(circle at 92% 55%,rgba(243,226,190,.9),transparent 45%),linear-gradient(165deg,#fdf3e3 0%,#f9e1dc 45%,#f4e4c8 100%);background-size:22px 22px,auto,auto,auto;transition:opacity .9s}
+#lock.gone{opacity:0;pointer-events:none}
+.lockc{width:100%;max-width:420px;text-align:center;padding:2rem 1.4rem 2rem;background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(200,164,94,.55);border-radius:24px;box-shadow:0 12px 40px rgba(201,140,150,.28),inset 0 1px 0 rgba(255,255,255,.75);animation:fade .7s}
+.lockc h1{font-size:clamp(2.2rem,9vw,3rem);margin:.6rem 0 .8rem}
+.lockc p{margin-bottom:1.2rem}
+.lockc .cgrid{margin:1.2rem 0 1.1rem}
+.lockic{display:inline-block;font-size:2.6rem;line-height:1;margin-bottom:.4rem;cursor:default;animation:lockb 2.8s ease-in-out infinite;user-select:none}
+@keyframes lockb{50%{transform:translateY(-6px) rotate(-4deg)}}
+.lockd{font-size:.85rem;opacity:.7;margin:0!important}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}#hearts,#burst{display:none}#start{animation:none}.token{animation:none!important}.fl,.bl{display:none}}
+</style>
+</head>
+<body class="locked">
+<div id="hearts" aria-hidden="true"></div>
+<div id="burst" aria-hidden="true"></div>
+<canvas id="fx"></canvas>
+<div id="lock" role="dialog" aria-live="polite">
+  <div class="lockc">
+    <div class="lockic" id="lockic" aria-hidden="true">🔒</div><br>
+    <span class="badge">Tanggal 17 ✦</span>
+    <h1>Sabar ya, Bubb 🤍</h1>
+    <p>Kejutanmu baru bisa dibuka tanggal 17. Tinggal sebentar lagi!</p>
+    <div class="cgrid">
+      <div class="cbox"><b id="lk-d">0</b><span>hari</span></div>
+      <div class="cbox"><b id="lk-h">0</b><span>jam</span></div>
+      <div class="cbox"><b id="lk-m">0</b><span>menit</span></div>
+      <div class="cbox"><b id="lk-s">0</b><span>detik</span></div>
+    </div>
+    <p class="lockd" id="lockd"></p>
+  </div>
+</div>
+<button id="music" aria-label="Putar/jeda musik">🎵</button>
+
+<!-- ===== LAYAR PEMBUKA & MINI QUEST ===== -->
+<div id="quest">
+  <div class="step on" id="s0">
+    <span class="badge">Tanggal 17 ✦</span>
+    <h1>Misi Rahasia Spesial Tanggal 17</h1>
+    <p>Hai Bubb! Ada 2 misi kecil sebelum kejutanmu terbuka. Siap?</p>
+    <button class="btn" id="start">Mulai Misi</button>
+  </div>
+  <div class="step" id="s1">
+    <span class="badge" id="qBadge">Misi 1 · Mini Quiz</span>
+    <h1 id="qText" style="font-size:1.7rem;margin:1rem 0"></h1>
+    <div id="qOpts"></div>
+    <div id="feedback"></div>
+  </div>
+  <div class="step" id="s2">
+    <span class="badge">Misi 2 · Cari Kunci Kejutan</span>
+    <h1>Temukan Kunci Emas!</h1>
+    <p>Ada 1 kunci emas 🔑 yang bersembunyi di antara bintang dan hati. Hati-hati, banyak pengecohnya!</p>
+    <button class="btn gold" id="go2">Cari Sekarang</button>
+  </div>
+  <div class="step" id="s3">
+    <span class="badge">Misi Selesai ✦</span>
+    <h1>Kunci Ulang Tahun ke-22 Terkumpul!</h1>
+    <p>BUKA PLEASE.</p>
+    <button class="btn gold" id="open"> HEHE 🎁</button>
+  </div>
+</div>
+<div id="stage"><div class="hud"><b>Cari kunci emas 🔑</b></div><div id="gnote" role="status"></div></div>
+
+<!-- ===== HALAMAN UTAMA ===== -->
+<main id="main">
+  <section id="hero">
+    <h1>Happy 22nd<em>Birthday, Bubb!</em></h1>
+    <p class="sub" style="margin-top:.8rem">klik amplop di bawah ini ✉️</p>
+    <div class="env" id="env">
+      <div class="back"></div>
+      <div class="front"></div>
+      <div class="flap"></div>
+      <div class="seal">💌</div>
+      <div class="hint">klik untuk membuka</div>
+    </div>
+    <div class="letter" id="letter">
+      <!-- GANTI DI SINI: isi surat ucapan (maksimal 4 paragraf <p>) -->
+      <h2>Dearest Agnia,</h2>
+<p>Happy 22nd birthday, Bubb! Today is all about celebrating you and the light you bring into my life every single day.</p>
+<p>Thank you for being my safe place, my favorite person to laugh with, and someone who makes ordinary days feel extraordinary.</p>
+<p>May chapter 22 bring you endless happiness, good health, and everything your heart has been quietly wishing for. Keep shining always.</p>
+<p>With all my heart, <br>— Adit</p> 
+    </div>
+  </section>
+
+  <section id="counter">
+    <div class="ccard reveal">
+      <h2>Setiap Detik Bersama Kamu<small>(Sejak 20 Agustus 2022)</small></h2>
+      <div class="cgrid">
+        <div class="cbox"><b id="cd-d">0</b><span>hari</span></div>
+        <div class="cbox"><b id="cd-h">0</b><span>jam</span></div>
+        <div class="cbox"><b id="cd-m">0</b><span>menit</span></div>
+        <div class="cbox"><b id="cd-s">0</b><span>detik</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2 class="reveal">Galeri Kenangan</h2>
+    <div class="wall" id="wall"></div>
+  </section>
+
+  <section id="video">
+    <h2 class="reveal">hehe ini ada ucapan dari teman teman kamu</h2>
+    <p class="sub reveal">Putar videonya ya 💛</p>
+    <div class="frame reveal"><div class="ratio">
+      <!-- GANTI DI SINI: link embed YouTube (format: https://www.youtube.com/embed/ID_VIDEO) -->
+      <video src="assets/ucapan-teman.mp4" controls playsinline style="width: 100%; height: 100%; border-radius: 14px; background: #000; object-fit: contain;"></video>
+    </div></div>
+  </section>
+
+  <section id="zodiac">
+    <div class="zcard reveal">
+      <div class="zsym">♏</div>
+      <h2>Scorpio</h2>
+      <p class="zdate">23 Oktober – 21 November</p>
+      <svg id="zsvg" viewBox="0 0 300 270" aria-label="Rasi bintang Scorpius"></svg>
+      <!-- GANTI DI SINI: kalimat zodiak & sifat-sifat Scorpio -->
+      <p class="zq">"Langit pun tahu, bintang paling terang itu kamu."</p>
+      <div class="zchips">
+        <span>Setia banget</span><span>Misterius</span><span>Penuh tekad</span><span>Hangat diam-diam</span>
+      </div>
+      <p class="zhint">✦ sentuh kartu ini ✦</p>
+    </div>
+  </section>
+
+  <section id="cakeSec">
+    <h2 class="reveal">Waktunya Tiup Lilin!</h2>
+    <p class="sub reveal">Make a wish babe!! 🕯️</p>
+    <div class="cake" id="cake">
+      <div class="nums"><div class="cd">2<i class="flame"></i></div><div class="cd">2<i class="flame"></i></div></div>
+      <div class="l1"></div><div class="l2"></div><div class="l3"></div><div class="plate"></div>
+    </div>
+    <div class="acts">
+      <button class="btn" id="hug">🤗 Kirim Peluk Virtual</button>
+      <button class="btn gold" id="kiss">💋 Virtual Kiss</button>
+    </div>
+    <div class="wl" id="wl" hidden>
+      <h3>Wishlist Bubub di Umur 22</h3>
+      <p id="wlText"></p>
+    </div>
+    <div id="wish">
+      <!-- GANTI DI SINI: pesan harapan akhir -->
+      Semoga Doa Doa dan Keinginan bubub terkabulkan dan aku turut mendoakan, happy 22 years old!!
+      <small>Maaf kalo kurang bagus dan kurang romantis, tapi aku bener bener niat buat rayain ultah kamu  ♡</small>
+    </div>
+  </section>
+  <section id="closing">
+    <div class="hcard reveal">
+      <h2>Harapan Bubub untuk Hubungan Kita ke Depan 🤍</h2>
+      <p class="sub">Tulis apa pun yang kamu harapkan dari kita, ya.</p>
+      <textarea id="hopeIn" class="wlin" rows="5" maxlength="500" placeholder="Harapanku untuk kita..."></textarea>
+      <button class="btn gold" id="hopeBtn">Simpan Harapan ✨</button>
+      <div id="hopeMsg" role="status"></div>
+      <div class="stamp" id="stamp" aria-hidden="true">Noted! 📝🤍</div>
+      <div class="mem" id="mem" hidden>
+        <small>Kartu Kenangan ♡</small>
+        <p id="memText"></p>
+        <span id="memDate"></span>
+      </div>
+    </div>
+    <div class="fbtn reveal"><button class="btn" id="flowerBtn">🌸 Sentuh untuk Kejutan Bunga</button></div>
+  </section>
+
+  <footer>17 · Happy Birthday</footer>
+</main>
+<div id="fx2"></div>
+<div id="vx" aria-hidden="true"></div>
+<div id="bq" aria-hidden="true">
+  <button class="bqx" id="bqx" aria-label="Tutup">✕</button>
+  <div class="bqglow"></div>
+  <div id="bqDust"></div>
+  <div class="bqwrap"><svg id="bqsvg" viewBox="0 0 360 520" aria-label="Buket bunga"></svg></div>
+  <div id="bqSky"></div>
+  <div class="bqtxt">Heres some flower for u 🌷<small> ✨ · </small></div>
+</div>
+<div id="sky" aria-hidden="true">
+  <button class="skx" id="skx" aria-label="Tutup">✕</button>
+  <div class="mw"></div>
+  <div id="skyStars"></div>
+  <div class="skyT"><span>♏︎</span><b>Scorpio</b><small>sentuh langit untuk bintang jatuh ✨</small></div>
+  <svg id="skysvg" viewBox="20 20 240 224" aria-label="Rasi bintang Scorpius"></svg>
+  <div id="skyFx"></div>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="kmodal" aria-hidden="true">
+  <div class="kcard" role="dialog" aria-label="Virtual Kiss">
+    <button class="kx" id="kclose" aria-label="Tutup">✕</button>
+    <video class="kvid" id="kvid" src="assets/kiss.mp4" autoplay loop muted playsinline preload="auto"></video>
+    <div class="kfall" id="kfall">💋</div>
+    <div class="ktxt">Mwah! Happy 22nd Birthday, Bubb!</div>
+  </div>
+</div>
+
+<script>
+/* ================= KONFIGURASI (MUDAH DIEDIT) ================= */
+const MUSIC_SRC = 'assets/lagu.mp3';
+
+// GANTI DI SINI: pertanyaan kuis (ans = nomor jawaban benar, mulai dari 0)
+const QUIZ = [
+  { q: 'Jika x adalah cintaku dan y adalah rinduku padamu, maka hasil dari lim (x → ∞) (x + y) adalah...',
+    opts: ['Tak terhingga (∞) ', '0 (Nol besar)', 'Error / Tidak terdefinisi', '17'], ans: 0 },
+  { q: 'Apa yang paling aku suka dari kamu?',
+    opts: ['Mata', 'Senyuman', 'Muka', 'Semuanya'], ans: 3 },
+  { q: 'Hal apa yang bubub mau capai di umur 22 ini?',
+    type: 'essay', placeholder: 'Tulis harapanmu di sini...' } // type 'essay' = isian bebas, hasilnya tampil di Wishlist dekat kue
+];
+const QUIZ_WRONG = 'Hmm, bukan itu 😆 Coba lagi!';
+const QUIZ_RIGHT = 'Benar banget! ✨';
+
+/* ================= HELPER ================= */
+const $ = s => document.querySelector(s);
+const show = id => { document.querySelectorAll('.step').forEach(e => e.classList.remove('on')); $(id).classList.add('on'); };
+const audio = new Audio(MUSIC_SRC); audio.loop = true; audio.volume = .6;
+const mbtn = $('#music');
+
+/* ================= EFEK (konfeti & kembang api) ================= */
+const cv = $('#fx'), cx = cv.getContext('2d'); let P = [], run = false;
+function fit(){ cv.width = innerWidth * devicePixelRatio; cv.height = innerHeight * devicePixelRatio; cx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); }
+fit(); addEventListener('resize', fit);
+const COL = ['#d9a5a8','#a9b89b','#c8a45e','#f1d3d3','#fff1c9'];
+function confetti(){ for(let i=0;i<130;i++) P.push({t:'c',x:Math.random()*innerWidth,y:-20-Math.random()*300,vx:(Math.random()-.5)*3,vy:2+Math.random()*3,w:6+Math.random()*6,h:8+Math.random()*8,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:COL[i%5],l:260}); go(); }
+function burst(x,y){ const c=COL[Math.floor(Math.random()*5)]; for(let i=0;i<46;i++){ const a=Math.PI*2*i/46,s=2+Math.random()*3.5; P.push({t:'f',x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,c,l:70+Math.random()*30,m:100}); } go(); }
+function fireworks(){ for(let i=0;i<12;i++) setTimeout(()=>burst(innerWidth*(.12+Math.random()*.76),innerHeight*(.12+Math.random()*.4)),i*380); }
+function go(){ if(!run){ run=true; requestAnimationFrame(tick); } }
+function tick(){
+  cx.clearRect(0,0,innerWidth,innerHeight);
+  P = P.filter(p => p.l > 0 && p.y < innerHeight + 40);
+  P.forEach(p => {
+    p.l--; p.x += p.vx; p.y += p.vy;
+    if(p.t==='c'){ p.r += p.vr; cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle=p.c; cx.fillRect(-p.w/2,-p.h/2,p.w,p.h); cx.restore(); }
+    else { p.vy += .05; p.vx *= .985; cx.globalAlpha = Math.min(1,p.l/40); cx.fillStyle = p.c; cx.beginPath(); cx.arc(p.x,p.y,2.4,0,7); cx.fill(); cx.globalAlpha = 1; }
+  });
+  if(P.length) requestAnimationFrame(tick); else run = false;
+}
+
+/* ================= ALUR QUEST ================= */
+$('#start').onclick = () => {
+  audio.play().then(() => mbtn.classList.add('spin')).catch(() => {});
+  mbtn.style.display = 'block';
+  loadQ(0); show('#s1');
+};
+mbtn.onclick = () => {
+  if(audio.paused){ audio.play(); mbtn.classList.add('spin'); mbtn.textContent = '🎵'; }
+  else { audio.pause(); mbtn.classList.remove('spin'); mbtn.textContent = '🔇'; }
+};
+function loadQ(i){
+  const d = QUIZ[i], box = $('#qOpts'), fb = $('#feedback'), qt = $('#qText');
+  $('#qBadge').textContent = 'Misi 1 · Pertanyaan ' + (i + 1) + '/' + QUIZ.length;
+  qt.textContent = d.q; qt.style.fontSize = d.q.length > 80 ? '1.25rem' : '1.7rem';
+  fb.textContent = ''; box.innerHTML = '';
+  const next = () => i + 1 < QUIZ.length ? loadQ(i + 1) : show('#s2');
+  if(d.type === 'essay'){ // pertanyaan esai: kotak teks + tombol kirim
+    const ta = document.createElement('textarea'); ta.className = 'wlin'; ta.rows = 4; ta.maxLength = 300; ta.placeholder = d.placeholder || '';
+    const b = document.createElement('button'); b.className = 'btn gold'; b.textContent = 'Kirim Harapan ✨'; b.style.marginTop = '.9rem';
+    b.onclick = () => {
+      const v = ta.value.trim();
+      if(!v){ fb.textContent = 'Tulis harapanmu dulu ya 🥺'; ta.focus(); return; }
+      ta.disabled = b.disabled = true;
+      fb.textContent = 'Aamiin! Semoga semua harapan bubub di umur 22 tercapai ya 🤍';
+      $('#wlText').textContent = v; $('#wl').hidden = false; // ditampilkan di Wishlist dekat kue
+      setTimeout(next, 2200);
+    };
+    box.append(ta, b); return;
+  }
+  d.opts.forEach((o, k) => {
+    const b = document.createElement('button'); b.className = 'opt'; b.textContent = o;
+    b.onclick = () => {
+      if(k === d.ans){ b.classList.add('ok'); fb.textContent = QUIZ_RIGHT; setTimeout(next, 900); }
+      else { b.classList.add('no'); fb.textContent = QUIZ_WRONG; setTimeout(() => b.classList.remove('no'), 450); }
+    };
+    box.appendChild(b);
+  });
+}
+// GANTI DI SINI: pesan lucu saat Agnia mengklik bintang / hati pengecoh
+const DECOY_NOTES = {
+  star: ['Ups, ini cuma bintang biasa, cari kuncinya! ⭐', 'Bintangnya cantik, tapi bukan kuncinya 😆', 'Hampir! Ini bintang, bukan kunci 🔍'],
+  heart: ['Ups, ini cuma love biasa, cari kuncinya! 💕', 'Love-nya manis, tapi bukan kuncinya 🥰', 'Bukan yang ini, sayang. Cari lagi 🔑']
+};
+$('#go2').onclick = () => {
+  const st = $('#stage'), gn = $('#gnote'), R = (a, b) => a + Math.random() * (b - a); let gT, found = false;
+  const note = m => { gn.textContent = m; gn.classList.add('show'); clearTimeout(gT); gT = setTimeout(() => gn.classList.remove('show'), 1800); };
+  $('#quest').style.opacity = 0; st.classList.add('on');
+  st.querySelectorAll('.token').forEach(t => t.remove());
+  const cells = []; for(let r = 0; r < 5; r++) for(let c = 0; c < 4; c++) cells.push([c, r]);
+  cells.sort(() => Math.random() - .5); // 20 sel, dipakai 19: 18 pengecoh + 1 kunci
+  const keyAt = Math.floor(Math.random() * 19), decoys = ['⭐','✨','💖','💕'];
+  for(let i = 0; i < 19; i++){
+    const isKey = i === keyAt, ico = isKey ? '🔑' : decoys[Math.floor(Math.random() * 4)];
+    const t = document.createElement('button'); t.className = 'token'; t.textContent = ico;
+    t.style.fontSize = '2.2rem'; t.setAttribute('aria-label', isKey ? 'Kunci emas' : 'Bintang atau hati');
+    t.style.left = (3 + cells[i][0] * 23.5 + R(0, 14)) + '%'; t.style.top = (15 + cells[i][1] * 15.6 + R(0, 9)) + '%';
+    t.style.animation = `float ${R(2.6, 4.2)}s ease-in-out ${R(0, 2)}s infinite, twk ${R(1.8, 3)}s ease-in-out ${R(0, 2)}s infinite alternate`;
+    t.onclick = () => {
+      if(found) return;
+      if(isKey){
+        found = true; t.style.animation = ''; t.classList.add('got'); note('Kunci ketemu! 🔑✨'); confetti();
+        setTimeout(() => { st.classList.remove('on'); $('#quest').style.opacity = 1; show('#s3'); confetti(); }, 1400);
+      } else {
+        const L = DECOY_NOTES[(ico === '⭐' || ico === '✨') ? 'star' : 'heart'];
+        note(L[Math.floor(Math.random() * L.length)]);
+        t.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.5) rotate(12deg)' }, { transform: 'scale(1)' }], { duration: 320 });
+      }
+    };
+    st.appendChild(t);
+  }
+};
+$('#open').onclick = () => {
+  $('#quest').classList.add('gone'); $('#main').style.display = 'block'; document.body.classList.remove('locked');
+  scrollTo(0, 0); setTimeout(() => $('#quest').remove(), 1000); observe();
+};
+
+/* ================= SURAT ================= */
+$('#env').onclick = function(){
+  this.classList.add('open'); $('#letter').classList.add('show');
+  setTimeout(() => $('#letter').scrollIntoView({ behavior: 'smooth', block: 'center' }), 600);
+};
+
+/* ================= POLAROID ================= */
+// GANTI DI SINI (opsional): caption tiap foto (foto: assets/foto1.jpeg s/d foto6.jpeg)
+const CAPTIONS = ['Hari itu','favv','aww','cayang','Senyum kamu','Favoritku'];
+CAPTIONS.forEach((cap, i) => {
+  const d = document.createElement('div'); d.className = 'pol';
+  d.innerHTML = `<div class="inner"><div class="face"><div class="ph"><img src="assets/foto${i+1}.jpeg" alt="${cap}" onerror="this.remove()"></div><div class="cap">${cap}</div></div></div>`;
+  $('#wall').appendChild(d);
+});
+
+/* ================= PENGHITUNG HARI JADIAN ================= */
+const ANNIV = '2022-08-20'; // GANTI TANGGAL DI SINI (format: TAHUN-BULAN-TANGGAL)
+function tickCounter(){
+  let t = Math.max(0, Math.floor((Date.now() - new Date(ANNIV + 'T00:00:00')) / 1000));
+  const d = Math.floor(t / 86400), h = Math.floor(t % 86400 / 3600), m = Math.floor(t % 3600 / 60), sc = t % 60;
+  $('#cd-d').textContent = d.toLocaleString('id-ID'); $('#cd-h').textContent = h; $('#cd-m').textContent = m; $('#cd-s').textContent = sc;
+}
+tickCounter(); setInterval(tickCounter, 1000);
+
+/* ================= PELUK & CIUMAN VIRTUAL ================= */
+// GANTI DI SINI: pesan manis yang muncul acak saat tombol Peluk diklik
+const HUG_MSGS = [
+  'Kamu hebat banget, Bubb. Aku bangga sama kamu 🤍',
+  'Peluk erat dari jauh! Kamu pantas dapat semua hal baik.',
+  'Senyum kamu itu bikin hariku lebih terang ✨',
+  'Pelan-pelan aja, kamu udah melakukan yang terbaik.',
+  'Kamu cantik, pintar, dan kuat. Jangan lupa itu ya!',
+  'Apa pun yang terjadi, aku selalu ada di sisi kamu 🤗'
+];
+const fx2 = $('#fx2'), toast = $('#toast'); let toastT;
+const rnd = (a, b) => a + Math.random() * (b - a);
+function rain(){
+  const set = ['💗','💖','🩷','✨','✦','💕'];
+  for(let i = 0; i < 42; i++){
+    const e = document.createElement('span'); e.className = 'fp'; e.textContent = set[i % set.length];
+    if(e.textContent === '✦') e.style.color = 'var(--gold)';
+    e.style.left = rnd(0, 96) + '%'; e.style.fontSize = rnd(16, 32) + 'px';
+    e.style.setProperty('--sw', rnd(-50, 50) + 'px'); e.style.setProperty('--rot', rnd(-200, 200) + 'deg');
+    e.style.animationDuration = rnd(2.8, 4.8) + 's'; e.style.animationDelay = rnd(0, 1.2) + 's';
+    fx2.appendChild(e); setTimeout(() => e.remove(), 6500);
+  }
+}
+$('#hug').onclick = () => {
+  rain();
+  toast.textContent = HUG_MSGS[Math.floor(Math.random() * HUG_MSGS.length)];
+  toast.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => toast.classList.remove('show'), 4500);
+};
+const KISS_AUTOCLOSE_MS = 8000; // GANTI DI SINI: lama pop-up sebelum menutup otomatis (ms). Isi 0 kalau tidak mau menutup otomatis
+const kmodal = $('#kmodal'), kvid = $('#kvid'); let kissT;
+kvid.onerror = () => { kvid.style.display = 'none'; $('#kfall').style.display = 'block'; }; // cadangan kalau assets/kiss.mp4 tidak ada
+function closeKiss(){
+  clearTimeout(kissT); kmodal.classList.remove('show'); kmodal.setAttribute('aria-hidden', 'true');
+  setTimeout(() => { if(!kmodal.classList.contains('show')) kvid.pause(); }, 650);
+}
+$('#kiss').onclick = () => {
+  kmodal.classList.add('show'); kmodal.setAttribute('aria-hidden', 'false');
+  kvid.currentTime = 0; const pl = kvid.play(); if(pl) pl.catch(() => {});
+  clearTimeout(kissT); if(KISS_AUTOCLOSE_MS) kissT = setTimeout(closeKiss, KISS_AUTOCLOSE_MS);
+};
+$('#kclose').onclick = closeKiss;
+kmodal.onclick = e => { if(e.target === kmodal) closeKiss(); };
+addEventListener('keydown', e => { if(e.key === 'Escape') closeKiss(); });
+
+/* ================= ZODIAK ================= */
+(function(){
+  const S = [[48,48],[88,62],[112,98],[132,128],[142,164],[156,198],[184,224],[218,226],[238,204],[228,178]]; // spine + ekor
+  const claws = [[[88,62],[62,34]],[[88,62],[40,72]],[[112,98],[70,106]]];
+  const svg = document.getElementById('zsvg'); const NS = 'http://www.w3.org/2000/svg';
+  const mk = (t, a) => { const e = document.createElementNS(NS, t); for(const k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; };
+  mk('path', { class:'zline', pathLength:1, d:'M'+S.map(p=>p.join(',')).join(' L') });
+  claws.forEach(c => mk('path', { class:'zline', pathLength:1, d:`M${c[0]} L${c[1]}` }));
+  const pts = S.concat(claws.map(c => c[1]));
+  pts.forEach((p, i) => {
+    const big = (i === 3); // Antares, bintang paling terang
+    const s = mk('circle', { class:'zst', cx:p[0], cy:p[1], r: big ? 6.5 : 3.2 });
+    s.style.animationDelay = (i * 0.37) + 's';
+    if(big) s.style.fill = '#ff9d6e';
+  });
+  for(let i = 0; i < 30; i++){ // bintang kecil latar
+    const s = mk('circle', { class:'zst', cx:Math.random()*300, cy:Math.random()*270, r:Math.random()*1.1+.3 });
+    s.style.animationDelay = Math.random()*3 + 's'; s.style.opacity = .5;
+  }
+})();
+
+/* ================= KUE ================= */
+let blown = false;
+$('#cake').onclick = () => {
+  if(blown) return; blown = true;
+  document.querySelectorAll('.cd').forEach((c, i) => setTimeout(() => c.classList.add('out'), i * 250));
+  setTimeout(() => { fireworks(); $('#wish').classList.add('show'); }, 700);
+};
+
+/* ================= HATI MELAYANG & PERCIKAN KLIK ================= */
+(function(){
+  const HEART = '\u2665\uFE0E', cols = ['#e9a7b4','#f2c1c8','#d9a5a8','#c8a45e','#e3c98d'];
+  const box = $('#hearts'), bb = $('#burst'), R = (a, b) => a + Math.random() * (b - a);
+  for(let i = 0; i < 14; i++){ // hati melayang di latar belakang (ringan: hanya 14 elemen)
+    const h = document.createElement('span'); h.className = 'hh'; h.textContent = HEART;
+    h.style.setProperty('--x', R(2, 96) + '%'); h.style.setProperty('--s', R(10, 30) + 'px');
+    h.style.setProperty('--c', cols[i % cols.length]); h.style.setProperty('--o', R(.28, .55).toFixed(2));
+    h.style.setProperty('--sw', R(-40, 40) + 'px'); h.style.setProperty('--d', R(13, 24) + 's');
+    h.style.setProperty('--dl', '-' + R(0, 22) + 's'); box.appendChild(h);
+  }
+  addEventListener('pointerdown', e => { // percikan hati saat klik / sentuh layar
+    if(bb.childElementCount > 36) return;
+    const n = 3 + Math.floor(Math.random() * 3);
+    for(let i = 0; i < n; i++){
+      const p = document.createElement('span'); p.className = 'bh'; p.textContent = HEART;
+      const a = R(0, Math.PI * 2), r = R(30, 75);
+      p.style.left = e.clientX + 'px'; p.style.top = e.clientY + 'px';
+      p.style.fontSize = R(12, 22) + 'px'; p.style.color = cols[Math.floor(Math.random() * cols.length)];
+      p.style.setProperty('--dx', Math.cos(a) * r + 'px'); p.style.setProperty('--dy', Math.sin(a) * r - 50 + 'px');
+      bb.appendChild(p); setTimeout(() => p.remove(), 1500);
+    }
+  }, { passive: true });
+})();
+
+/* ================= PENUTUP SPESIAL: HARAPAN & HUJAN BUNGA ================= */
+(function(){
+  const R = (a, b) => a + Math.random() * (b - a), vx = $('#vx'); let live = 0;
+  function flowers(){ // pusaran spiral 3D bunga sakura 🌸 (bisa diklik berulang kali)
+    if(live > 100) return; // batasi jumlah agar HP tetap ringan
+    for(let i = 0; i < 76; i++){
+      const e = document.createElement('span'), dur = R(3.6, 5.2), dl = R(0, 2.2), tn = R(520, 900);
+      e.className = i % 3 === 0 ? 'fl far' : 'fl'; e.textContent = '🌸'; // 1/3 bunga dibuat buram di kejauhan
+      e.style.fontSize = R(24, 34) + 'px';
+      const v = (k, x) => e.style.setProperty(k, x);
+      v('--a0', (R(-35, 35) - tn).toFixed(0) + 'deg'); v('--tn', tn.toFixed(0) + 'deg'); // sudut awal & total putaran
+      v('--z', R(110, 230).toFixed(0) + 'px'); v('--y', '-' + R(70, 98).toFixed(0) + 'vh'); // radius & tinggi naik
+      v('--sp', R(180, 520).toFixed(0) + 'deg'); v('--sm', R(2.2, 2.8).toFixed(2)); // putaran bunga & skala akhir
+      v('--h', R(-12, 12).toFixed(0) + 'deg'); v('--sat', R(.9, 1.35).toFixed(2)); // variasi rona pink
+      v('--d', dur.toFixed(2) + 's'); v('--dl', dl.toFixed(2) + 's');
+      live++; vx.appendChild(e); setTimeout(() => { e.remove(); live--; }, (dur + dl) * 1000 + 300);
+    }
+  }
+  const ta = $('#hopeIn'), msg = $('#hopeMsg'), stamp = $('#stamp'), mem = $('#mem');
+  $('#hopeBtn').onclick = () => {
+    const v = ta.value.trim();
+    if(!v){ msg.textContent = 'Tulis harapanmu dulu ya 🥺'; ta.focus(); return; }
+    msg.textContent = 'Terima kasih sudah menulis ini, aku aminkan semuanya!';
+    stamp.classList.remove('go'); void stamp.offsetWidth; stamp.classList.add('go'); // stempel "Noted!"
+    flowers(); // bunga otomatis muncul sekali
+    setTimeout(() => { // tampilkan tulisan sebagai kartu kenangan
+      mem.hidden = true; void mem.offsetWidth;
+      $('#memText').textContent = v;
+      $('#memDate').textContent = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+      mem.hidden = false; mem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 1300);
+  };
+})();
+
+/* ================= KEJUTAN BUNGA: BUKET MEKAR + KUPU-KUPU ================= */
+(function(){
+  const R = (a, b) => a + Math.random() * (b - a), f = n => (+n).toFixed(1);
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const bq = $('#bq'), svg = $('#bqsvg'), bsky = $('#bqSky'), dustBox = $('#bqDust');
+  let open = false, closeT, amb;
+
+  /* gradien warna dipakai bersama (buket + kupu-kupu) */
+  const lg = (id, st, v) => `<linearGradient id="${id}" ${v || 'x1="0" y1="1" x2="0" y2="0"'}>${st.map((c, i) => `<stop offset="${i / (st.length - 1)}" stop-color="${c}"/>`).join('')}</linearGradient>`;
+  const defs = document.createElement('div'); defs.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden';
+  defs.innerHTML = '<svg width="0" height="0" aria-hidden="true"><defs>' +
+    lg('pkLight', ['#e8a0b0', '#f7cdd4', '#fff1ee']) + lg('pkRose', ['#c4627f', '#e996ab', '#f9cdd6']) +
+    lg('pkDeep', ['#a8486a', '#d9779a', '#f0a8bd']) + lg('pkCream', ['#f0b9c0', '#fbe3df', '#fffaf2']) +
+    lg('lfA', ['#6f8562', '#98ab88']) + lg('lfB', ['#86996f', '#b6c4a8']) +
+    lg('bfP', ['#e57f9b', '#f6b9c6'], 'x1="1" y1="1" x2="0" y2="0"') + lg('bfR', ['#e8a0b4', '#f9d6dc'], 'x1="1" y1="1" x2="0" y2="0"') +
+    lg('bfG', ['#d9a85c', '#f6e3ae'], 'x1="1" y1="1" x2="0" y2="0"') +
+    lg('gold', ['#f3dc9d', '#c8a45e', '#e6c987'], 'x1="0" y1="0" x2="1" y2="1"') +
+    lg('paper', ['#fbe9e9', '#f3cfd4', '#e4aab6'], 'x1="0" y1="0" x2="1" y2="0"') +
+    lg('fold', ['rgba(255,255,255,.55)', 'rgba(255,255,255,0)'], 'x1="0" y1="0" x2="1" y2="0"') +
+    '<radialGradient id="ctr"><stop offset="0" stop-color="#fff3b8"/><stop offset="1" stop-color="#dba74e"/></radialGradient></defs></svg>';
+  document.body.appendChild(defs);
+
+  /* bentuk kelopak & daun */
+  const pp = (w, h) => `M0,0 C${f(-w * .55)},${f(-h * .2)} ${f(-w * .66)},${f(-h * .96)} 0,${f(-h)} C${f(w * .66)},${f(-h * .96)} ${f(w * .55)},${f(-h * .2)} 0,0Z`;
+  const nn = (w, h) => `M0,0 C${f(-w * .5)},${f(-h * .25)} ${f(-w * 1.05)},${f(-h * .7)} ${f(-w * .62)},${f(-h * .98)} C${f(-w * .4)},${f(-h * 1.08)} ${f(-w * .12)},${f(-h)} 0,${f(-h * .86)} C${f(w * .12)},${f(-h)} ${f(w * .4)},${f(-h * 1.08)} ${f(w * .62)},${f(-h * .98)} C${f(w * 1.05)},${f(-h * .7)} ${f(w * .5)},${f(-h * .25)} 0,0Z`;
+  const lp = (w, h) => `M0,0 C${-w},${f(-h * .3)} ${f(-w * .8)},${f(-h * .85)} 0,${-h} C${f(w * .8)},${f(-h * .85)} ${w},${f(-h * .3)} 0,0Z`;
+  const petal = (d, g, a, dl) => `<path class="pt" d="${d}" fill="url(#${g})" style="--r:${a.toFixed(0)}deg;--d:${dl.toFixed(2)}s"/>`;
+  const head = (x, y, inner, d) => `<g transform="translate(${x},${y})"><g class="fh" style="--bd:${(d + 2.2).toFixed(1)}s">${inner}</g></g>`;
+
+  const PAL = { P1: ['pkLight', 'pkRose', 'pkDeep', 'pkDeep'], P2: ['pkCream', 'pkLight', 'pkRose', 'pkDeep'], P3: ['pkRose', 'pkDeep', 'pkDeep', 'pkDeep'] };
+  function peony(x, y, s, d, pal){
+    const L = [[6, 32, 38, 0, 0], [6, 27, 31, 30, .14], [5, 21, 24, 12, .28], [3, 12, 14, 40, .42]];
+    let h = '';
+    L.forEach((l, i) => { for(let k = 0; k < l[0]; k++) h += petal(pp(l[1] * s, l[2] * s), pal[i], l[3] + k * 360 / l[0] + R(-6, 6), d + l[4] + R(0, .08)); });
+    return head(x, y, h, d);
+  }
+  function cosmos(x, y, s, d){
+    let h = '';
+    for(let k = 0; k < 8; k++) h += petal(nn(17 * s, 33 * s), 'pkLight', k * 45 + R(-4, 4), d + R(0, .08));
+    for(let k = 0; k < 8; k++) h += petal(nn(13 * s, 25 * s), 'pkCream', 22.5 + k * 45 + R(-4, 4), d + .18 + R(0, .06));
+    h += `<circle class="ct" r="${f(5 * s)}" fill="url(#ctr)" style="--d:${(d + .45).toFixed(2)}s"/>`;
+    for(let k = 0; k < 7; k++){ const a = k * Math.PI * 2 / 7; h += `<circle class="ct" cx="${f(Math.cos(a) * 8 * s)}" cy="${f(Math.sin(a) * 8 * s)}" r="1.3" fill="#b8863a" style="--d:${(d + .55).toFixed(2)}s"/>`; }
+    return head(x, y, h, d);
+  }
+  function blossom(x, y, s, d){
+    let h = '';
+    for(let k = 0; k < 5; k++) h += petal(nn(17 * s, 25 * s), 'pkCream', k * 72 + R(-5, 5), d + R(0, .08));
+    for(let k = 0; k < 5; k++) h += petal(nn(10 * s, 14 * s), 'pkRose', 36 + k * 72 + R(-5, 5), d + .2);
+    for(let k = 0; k < 8; k++){ const a = k * Math.PI / 4 + R(-.2, .2), l = R(8, 11) * s;
+      h += `<line class="ct" x1="0" y1="0" x2="${f(Math.cos(a) * l)}" y2="${f(Math.sin(a) * l)}" stroke="#d99a4e" stroke-width="1" style="--d:${(d + .5).toFixed(2)}s"/><circle class="ct" cx="${f(Math.cos(a) * l)}" cy="${f(Math.sin(a) * l)}" r="1.6" fill="#f0c36a" style="--d:${(d + .55).toFixed(2)}s"/>`; }
+    return head(x, y, h, d);
+  }
+
+  /* ranting eucalyptus, daun besar, baby's breath */
+  const leaf = (px, py, a, w, hh, dd, g) => `<g transform="translate(${f(px)},${f(py)}) rotate(${f(a)})"><g class="lf" style="--d:${dd.toFixed(2)}s"><path d="${lp(w, hh)}" fill="url(#${g})" stroke="rgba(70,95,60,.35)" stroke-width=".5"/><path d="M0,0 L0,${f(-hh * .8)}" stroke="rgba(255,255,255,.35)" stroke-width=".6"/></g></g>`;
+  function sprig(x, y, d, n){
+    const cx = (180 + x) / 2 + R(-20, 20), cy = (432 + y) / 2 + R(-12, 12);
+    const at = t => [(1 - t) * (1 - t) * 180 + 2 * (1 - t) * t * cx + t * t * x, (1 - t) * (1 - t) * 432 + 2 * (1 - t) * t * cy + t * t * y];
+    const tg = t => Math.atan2(2 * (1 - t) * (cx - 180) + 2 * t * (x - cx), -(2 * (1 - t) * (cy - 432) + 2 * t * (y - cy))) * 180 / Math.PI;
+    let h = `<path class="stem" pathLength="1" d="M180,432 Q${f(cx)},${f(cy)} ${x},${y}" style="--d:${d}s"/>`;
+    for(let i = 1; i <= n; i++){ const t = .3 + .7 * i / n, p = at(t), a = tg(t), dd = d + 1 + t * .5;
+      h += leaf(p[0], p[1], a - 52, 6.5, 13, dd, 'lfA') + leaf(p[0], p[1], a + 52, 6.5, 13, dd + .08, 'lfB'); }
+    const e = at(1); return h + leaf(e[0], e[1], tg(1), 6, 12, d + 1.6, 'lfA');
+  }
+  function breath(x, y, d){
+    const cx = (180 + x) / 2 + R(-14, 14), cy = (432 + y) / 2;
+    let h = `<path class="stem thin" pathLength="1" d="M180,432 Q${f(cx)},${f(cy)} ${x},${y}" style="--d:${d}s"/>`;
+    for(let k = 0; k < 6; k++){ const a = k * Math.PI / 3 + R(-.3, .3), r = R(6, 12), px = x + Math.cos(a) * r, py = y + Math.sin(a) * r;
+      h += `<path d="M${x},${y} L${f(px)},${f(py)}" stroke="#a3b394" stroke-width=".8" fill="none"/><g transform="translate(${f(px)},${f(py)})"><circle class="ct" r="${f(R(2, 3))}" fill="#fffaf3" stroke="rgba(190,150,160,.45)" stroke-width=".4" style="--d:${(d + 1 + k * .07).toFixed(2)}s"/></g>`; }
+    return h;
+  }
+
+  function build(){
+    let back = '', fl = '', top = '';
+    [[180, 58, 0, 5], [96, 84, .08, 5], [264, 84, .1, 5], [46, 146, .16, 5], [314, 146, .18, 5], [22, 196, .24, 4], [338, 196, .26, 4]].forEach(a => back += sprig(a[0], a[1], a[2], a[3]));
+    [[152, 88], [208, 86], [84, 168], [276, 168], [36, 214], [324, 214]].forEach((p, i) => back += breath(p[0], p[1], .3 + i * .05));
+    back += leaf(150, 326, -62, 14, 46, .9, 'lfA') + leaf(210, 326, 62, 14, 46, .95, 'lfB') + leaf(180, 316, 0, 12, 52, 1, 'lfA');
+    const F = [['b', 116, 288, 1], ['b', 246, 288, 1.05], ['c', 62, 238, .95], ['c', 298, 238, .95], ['c', 112, 132, .9], ['b', 250, 130, 1.05],
+      ['p', 112, 200, 1, 'P2'], ['p', 250, 200, 1, 'P3'], ['p', 180, 250, 1, 'P2'], ['p', 180, 158, 1.18, 'P1']];
+    F.forEach((a, i) => {
+      const d = .85 + i * .17, x = a[1], y = a[2];
+      back += `<path class="stem" pathLength="1" d="M180,432 Q${f(x * .6 + 72)},${f(y + (432 - y) * .5)} ${x},${y}" style="--d:${(.15 + i * .06).toFixed(2)}s"/>`;
+      fl += a[0] === 'p' ? peony(x, y, a[3], d, PAL[a[4]]) : a[0] === 'c' ? cosmos(x, y, a[3], d) : blossom(x, y, a[3], d);
+    });
+    const bow = '<g class="bowin"><path d="M180,402 C150,372 112,392 132,416 C146,430 170,416 180,402Z" fill="url(#gold)" stroke="#b28a3f" stroke-width=".7"/><path d="M180,402 C210,372 248,392 228,416 C214,430 190,416 180,402Z" fill="url(#gold)" stroke="#b28a3f" stroke-width=".7"/><path d="M178,408 C170,430 158,450 148,468 L164,462 L170,476 C178,452 184,430 184,408Z" fill="url(#gold)" stroke="#b28a3f" stroke-width=".7"/><path d="M182,408 C190,430 202,450 212,468 L196,462 L190,476 C182,452 176,430 176,408Z" fill="url(#gold)" stroke="#b28a3f" stroke-width=".7"/><ellipse cx="180" cy="406" rx="9" ry="8" fill="url(#gold)" stroke="#b28a3f" stroke-width=".8"/></g>';
+    top = '<g class="wrapin"><path d="M80,324 Q130,300 180,312 Q230,300 280,324 L198,506 Q180,516 162,506Z" fill="url(#paper)" stroke="rgba(185,112,122,.35)" stroke-width="1"/><path d="M80,324 Q124,340 170,372 L162,506 Z" fill="url(#fold)"/><path d="M280,324 Q236,340 190,372 L198,506 Z" fill="rgba(150,70,95,.12)"/><path d="M80,324 Q130,300 180,312 Q230,300 280,324 Q230,334 180,330 Q130,334 80,324Z" fill="#f9e9e9" opacity=".9"/><path d="M113,390 Q180,412 247,390 L251,404 Q180,428 109,404Z" fill="url(#gold)"/>' + bow + '</g>';
+    return `<g class="sway">${back}${fl}${top}</g>`;
+  }
+
+  /* kelopak jatuh */
+  function dropPetal(x, y){
+    const e = document.createElement('i'), c = ['#f3b6c2', '#f8d3d8', '#e996ab', '#fde4e7'][Math.floor(R(0, 4))];
+    e.className = 'fpet'; e.style.background = `linear-gradient(160deg,${c},#e58fa3)`; bsky.appendChild(e);
+    const dx = R(-80, 80), dy = R(160, 320), rot = R(-320, 320);
+    e.animate([
+      { transform: `translate(${x}px,${y}px) rotate(0deg)`, opacity: 0 },
+      { transform: `translate(${x + dx * .3}px,${y + dy * .3}px) rotate(${rot * .3}deg)`, opacity: 1, offset: .15 },
+      { transform: `translate(${x - dx * .2}px,${y + dy * .65}px) rotate(${rot * .65}deg)`, opacity: 1, offset: .6 },
+      { transform: `translate(${x + dx}px,${y + dy}px) rotate(${rot}deg)`, opacity: 0 }
+    ], { duration: R(2600, 3800), easing: 'ease-in' }).onfinish = () => e.remove();
+  }
+  const center = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+
+  /* kupu-kupu: terbang mengikuti kurva mulus */
+  const wing = g => `<path d="M0,-1 C-5,-15 -21,-17 -19,-7 C-18,-2 -8,1 0,1Z" fill="url(#${g})" stroke="rgba(150,70,95,.5)" stroke-width=".6"/><path d="M0,1 C-8,2 -15,5 -12,12 C-9,16 -3,10 0,3Z" fill="url(#${g})" stroke="rgba(150,70,95,.5)" stroke-width=".6"/><circle cx="-13" cy="-8" r="2.3" fill="#fff6e6" opacity=".85"/><circle cx="-9" cy="8" r="1.5" fill="#fff6e6" opacity=".8"/>`;
+  const bfSVG = g => `<svg viewBox="-22 -20 44 40" width="42" height="38" style="--fd:${R(.16, .26).toFixed(2)}s"><g class="bw">${wing(g)}</g><g transform="scale(-1,1)"><g class="bw">${wing(g)}</g></g><ellipse cx="0" cy="0" rx="1.5" ry="8" fill="#6b4a52"/><path d="M0,-7 Q-3,-13 -5,-14 M0,-7 Q3,-13 5,-14" stroke="#6b4a52" stroke-width=".7" fill="none"/></svg>`;
+  function spawnBF(i){
+    const W = innerWidth, H = innerHeight, el = document.createElement('div'); el.className = 'bf';
+    el.innerHTML = bfSVG(['bfP', 'bfR', 'bfP', 'bfG', 'bfR', 'bfP', 'bfG'][i % 7]);
+    el.firstChild.animate([{ transform: 'translateY(-3px)' }, { transform: 'translateY(3px)' }], { duration: R(450, 700), direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+    bsky.appendChild(el);
+    const K = 6, pts = []; for(let k = 0; k < K; k++) pts.push([R(.08, .92) * W, R(.1, .85) * H]);
+    pts[0] = [W * .5 + R(-30, 30), H * .46 + R(-40, 40)];
+    const S = 10, path = [];
+    for(let k = 0; k < K; k++){ const p0 = pts[(k + K - 1) % K], p1 = pts[k], p2 = pts[(k + 1) % K], p3 = pts[(k + 2) % K];
+      for(let s = 0; s < S; s++){ const t = s / S, t2 = t * t, t3 = t2 * t, c = j => .5 * (2 * p1[j] + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t2 + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t3); path.push([c(0), c(1)]); } }
+    path.push(path[0]);
+    let len = 0; for(let j = 1; j < path.length; j++) len += Math.hypot(path[j][0] - path[j - 1][0], path[j][1] - path[j - 1][1]);
+    const sc = R(.8, 1.35); let prev = 0;
+    const kf = path.map((p, j) => { const q = path[Math.min(j + 1, path.length - 1)], r = path[Math.max(j - 1, 0)];
+      let a = Math.atan2(q[1] - r[1], q[0] - r[0]) * 180 / Math.PI + 90; while(a - prev > 180) a -= 360; while(a - prev < -180) a += 360; prev = a;
+      return { transform: `translate(${f(p[0] - 21)}px,${f(p[1] - 19)}px) rotate(${f(a)}deg) scale(${sc.toFixed(2)})` }; });
+    el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 900, fill: 'forwards' });
+    el.animate(kf, { duration: len / R(55, 85) * 1000, iterations: Infinity, fill: 'both' });
+  }
+
+  /* buka / tutup */
+  function openBQ(){
+    if(open) return; open = true; clearTimeout(closeT); bsky.innerHTML = '';
+    svg.innerHTML = build(); bq.classList.add('show'); bq.setAttribute('aria-hidden', 'false');
+    if(!RM){
+      for(let i = 0; i < 7; i++) setTimeout(() => { if(open) spawnBF(i); }, 1500 + i * 450);
+      amb = setInterval(() => { const hs = svg.querySelectorAll('.fh'); if(hs.length){ const c = center(hs[Math.floor(Math.random() * hs.length)]); dropPetal(c[0], c[1]); } }, 1400);
+    }
+  }
+  function closeBQ(){
+    if(!open) return; open = false; clearInterval(amb); bq.classList.remove('show'); bq.setAttribute('aria-hidden', 'true');
+    closeT = setTimeout(() => { svg.innerHTML = ''; bsky.innerHTML = ''; }, 800);
+  }
+  for(let i = 0; i < 18; i++){ const d = document.createElement('i'); d.style.cssText = `--x:${R(3, 96).toFixed(0)}%;--s:${R(3, 7).toFixed(1)}px;--d:${R(9, 16).toFixed(1)}s;--dl:-${R(0, 14).toFixed(1)}s;--sw:${R(-40, 40).toFixed(0)}px`; dustBox.appendChild(d); }
+  svg.addEventListener('click', e => {
+    const fh = e.target.closest('.fh'); if(!fh) return;
+    fh.animate([{ scale: 1 }, { scale: 1.22 }, { scale: 1 }], { duration: 520, easing: 'ease-out' });
+    const c = center(fh); for(let i = 0; i < 6; i++) dropPetal(c[0] + R(-14, 14), c[1] + R(-14, 14));
+    if(navigator.vibrate) navigator.vibrate(12);
+  });
+  bq.addEventListener('click', e => { if(!e.target.closest('#bqsvg')) closeBQ(); });
+  $('#flowerBtn').onclick = openBQ;
+  window.closeBQ = closeBQ;
+})();
+
+/* ================= LANGIT MALAM ZODIAK: BINTANG JATUH ================= */
+// GANTI DI SINI: kalimat yang muncul di setiap bintang jatuh
+const SKY_MSGS = [
+  'Semoga selalu bahagia ✨',
+  'Semoga semua doamu terkabul 🤍',
+  'Semoga sehat terus, Bubb',
+  'Kamu bintang paling terang 🌟',
+  'Semoga makin sukses di umur 22 ⭐',
+  'Aku sayang kamu 💫',
+  'Semoga kita selalu bersama 🤍'
+];
+(function(){
+  const R = (a, b) => a + Math.random() * (b - a), NS = 'http://www.w3.org/2000/svg';
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sky = $('#sky'), svg = $('#skysvg'), fxl = $('#skyFx'), stars = $('#skyStars');
+  let open = false, loopT, clearT, last = 0, order = [];
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const nextMsg = () => { if(!order.length) order = SKY_MSGS.map((_, i) => i).sort(() => Math.random() - .5); return SKY_MSGS[order.pop()]; };
+
+  for(let i = 0; i < 90; i++){ const s = document.createElement('i'); const z = R(1, 3);
+    s.style.cssText = `--x:${R(0, 100).toFixed(1)}%;--y:${R(0, 100).toFixed(1)}%;--s:${z.toFixed(1)}px;--o:${R(.4, 1).toFixed(2)};--d:${R(1.6, 4).toFixed(1)}s;--dl:-${R(0, 4).toFixed(1)}s`; stars.appendChild(s); }
+
+  function drawConst(){
+    const S = [[48,48],[88,62],[112,98],[132,128],[142,164],[156,198],[184,224],[218,226],[238,204],[228,178]];
+    const claws = [[[88,62],[62,34]],[[88,62],[40,72]],[[112,98],[70,106]]];
+    svg.innerHTML = ''; svg.classList.remove('draw');
+    const mk = (t, a) => { const e = document.createElementNS(NS, t); for(const k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; };
+    mk('path', { class: 'sl', pathLength: 1, d: 'M' + S.map(p => p.join(',')).join(' L') });
+    claws.forEach(c => mk('path', { class: 'sl', pathLength: 1, d: `M${c[0]} L${c[1]}` }));
+    mk('circle', { class: 'halo', cx: 132, cy: 128, r: 16 });
+    S.concat(claws.map(c => c[1])).forEach((p, i) => { const big = i === 3; const s = mk('circle', { class: 'sst', cx: p[0], cy: p[1], r: big ? 6.5 : 3.4 }); s.style.setProperty('--i', i); if(big) s.style.fill = '#ff9d6e'; });
+    const t = mk('text', { class: 'alab', x: 144, y: 118 }); t.textContent = 'Antares';
+    void svg.getBoundingClientRect(); requestAnimationFrame(() => svg.classList.add('draw'));
+  }
+
+  function shoot(fx, fy){
+    const W = innerWidth, H = innerHeight, dir = Math.random() < .5 ? -1 : 1;
+    const sx = fx != null ? fx : (dir < 0 ? R(.5, 1.05) : R(-.05, .5)) * W, sy = fy != null ? fy : R(.03, .28) * H;
+    const A = R(16, 34) * Math.PI / 180, L = R(.45, .7) * Math.min(W, 700) + 90;
+    const dx = dir * Math.cos(A) * L, dy = Math.sin(A) * L, ex = sx + dx, ey = sy + dy, ang = Math.atan2(dy, dx) * 180 / Math.PI, dur = R(1000, 1400);
+    const s = document.createElement('div'); s.className = 'ss'; fxl.appendChild(s);
+    s.animate([
+      { transform: `translate(${sx - 150}px,${sy - 1}px) rotate(${ang}deg)`, opacity: 0 },
+      { opacity: 1, offset: .12 }, { opacity: 1, offset: .7 },
+      { transform: `translate(${ex - 150}px,${ey - 1}px) rotate(${ang}deg)`, opacity: 0 }
+    ], { duration: dur, easing: 'cubic-bezier(.3,.1,.5,1)' }).onfinish = () => s.remove();
+    const m = document.createElement('div'); m.className = 'smsg'; m.textContent = nextMsg();
+    fxl.appendChild(m); const hw = m.offsetWidth / 2 + 14; m.style.left = clamp(ex, hw, W - hw) + 'px'; m.style.top = clamp(ey + 30, H * .22, H * .88) + 'px';
+    m.animate([
+      { transform: 'translate(-50%,calc(-50% + 12px))', opacity: 0 },
+      { transform: 'translate(-50%,-50%)', opacity: 1, offset: .16 },
+      { transform: 'translate(-50%,calc(-50% - 8px))', opacity: 1, offset: .72 },
+      { transform: 'translate(-50%,calc(-50% - 20px))', opacity: 0 }
+    ], { duration: 3800, delay: dur * .6, fill: 'both' }).onfinish = () => m.remove();
+  }
+  function loop(){ if(!open) return; shoot(); loopT = setTimeout(loop, R(2200, 3400)); }
+
+  function openSky(){
+    if(open) return; open = true; clearTimeout(clearT); fxl.innerHTML = ''; drawConst();
+    sky.classList.add('show'); sky.setAttribute('aria-hidden', 'false');
+    if(!RM) loopT = setTimeout(loop, 1300);
+  }
+  function closeSky(){
+    if(!open) return; open = false; clearTimeout(loopT); sky.classList.remove('show'); sky.setAttribute('aria-hidden', 'true');
+    clearT = setTimeout(() => { fxl.innerHTML = ''; svg.innerHTML = ''; }, 800);
+  }
+  $('.zcard').addEventListener('click', openSky);
+  $('#skx').onclick = e => { e.stopPropagation(); closeSky(); };
+  sky.addEventListener('pointerdown', e => { if(e.target.closest('#skx')) return; const n = Date.now(); if(n - last < 500) return; last = n; shoot(e.clientX, e.clientY); });
+  addEventListener('keydown', e => { if(e.key === 'Escape'){ closeSky(); if(window.closeBQ) closeBQ(); } });
+})();
+
+/* ================= SCROLL REVEAL ================= */
+function observe(){
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .2 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+/* ================= KUNCI TANGGAL 17 ================= */
+// GANTI DI SINI: kapan kejutan terbuka (format TAHUN-BULAN-TANGGAL + jam + zona waktu; +07:00 = WIB). Isi tanggal yang sudah lewat kalau tidak mau dikunci
+const UNLOCK_AT = '2026-11-17T00:00:00+07:00';
+(function(){
+  const lock = $('#lock'); if(!lock) return;
+  const t0 = new Date(UNLOCK_AT).getTime();
+  // tes cepat: buka halaman dengan ?preview di ujung alamat, atau ketuk ikon gembok 7 kali
+  if(isNaN(t0) || Date.now() >= t0 || /[?&]preview\b/.test(location.search)){ lock.remove(); return; }
+  let tm, taps = 0, tapT;
+  try { $('#lockd').textContent = 'Dibuka ' + new Date(t0).toLocaleString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Jakarta' }).replace(/\./g, '.') + ' WIB'; } catch(e){}
+  function unlock(){ clearInterval(tm); lock.classList.add('gone'); setTimeout(() => { lock.remove(); confetti(); }, 900); }
+  function tk(){
+    const t = Math.ceil((t0 - Date.now()) / 1000); if(t <= 0){ unlock(); return; }
+    $('#lk-d').textContent = Math.floor(t / 86400).toLocaleString('id-ID'); $('#lk-h').textContent = Math.floor(t % 86400 / 3600);
+    $('#lk-m').textContent = Math.floor(t % 3600 / 60); $('#lk-s').textContent = t % 60;
+  }
+  $('#lockic').onclick = () => { taps++; clearTimeout(tapT); tapT = setTimeout(() => taps = 0, 2500); if(taps >= 7) unlock(); };
+  tk(); tm = setInterval(tk, 1000);
+})();
+
+</script>
+</body>
+</html>
